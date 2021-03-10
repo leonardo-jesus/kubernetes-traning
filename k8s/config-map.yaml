@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-lkp
+data:
+  PORT: "3000"
+  DB_USER: "LEONARDO"

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-nodejs
+  labels:
+    app: api-nodejs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: api-nodejs
+  template:
+    metadata:
+      labels:
+        app: api-nodejs
+    spec:
+      containers:
+      - name: api-nodejs
+        image: api-nodejs:1.0.0
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: configmap-lkp
+        - secretRef: 
+            name: secret-lkp
